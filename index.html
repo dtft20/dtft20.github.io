@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" \>
+        <meta name="author" content="Matthew Widdop" \>
+        <meta 
+            name="descrition" 
+            content="One of my favourite parts of computer science is logic, so this page is about the greatest logic gate."
+        \>
+        <link rel="stylesheet" type="text/CSS" href="styling/style.css">
+        <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+        <title>NAND gates</title>
+    </head>
+    <body>
+        <h1>The Universal Gate</h1>
+        <p>
+            A universal gate is one that can be used to make any Boolean function. The NAND gate is used in favour of NOR or other exotic gates like XNOR for it's simplicity and cost. NAND may be expressed as the Boolean expression \(\overline A\lor\overline B=\overline{A\cdot B}\) by application of De Morgan's Law.
+        </p>
+        <h2>Contents</h2>
+        <ul>
+            <li><a id="NAND-Truth-Table">NAND Truth Table</a></li>
+            <li><a id="Constructing-AND-OR-and-NOT">Constructing AND, OR, and NOT</a></li>
+            <li><a id="Symbols">Symbols</a></li>
+            <li><a id="Implementation-using-MOS-transistors">Implementation using MOS transistors</a></li>
+            <li><a id="Advantages-and-Disadvantages">Applications</a></li>
+            <li><a id="Quiz">Quiz</a></li>
+        </ul>
+        
+        <h2 id="NAND-Truth-Table">NAND Truth Table</h2>
+        <table>
+            <tr>
+                <th>\(A\)</th><th>\(B\)</th><th>\(F(A,B)\)</th>
+            </tr>
+            <tr>
+                <td>\(1\)</td><td>\(1\)</td><td>\(0\)</td>
+            </tr>
+            <tr>
+                <td>\(1\)</td><td>\(0\)</td><td>\(1\)</td>
+            </tr>
+            <tr>
+                <td>\(0\)</td><td>\(1\)</td><td>\(1\)</td>
+            </tr>
+            <tr>
+                <td>\(0\)</td><td>\(0\)</td><td>\(1\)</td>
+            </tr>
+        </table>
+        
+        <h2 id="Constructing-AND-OR-and-NOT">Constructing AND, OR, and NOT</h2>
+        <p>
+            The following section is significant in showing that the gate is functionally complete, as it an be used to construct a set of universal gates.
+        </p>
+        <p>
+            Let's begin with NOT, as it is a simple logic gate that inverts the input. $$\neg A=A\uparrow A$$
+        </p>
+        <p>AND gates are simple as they are a negation of the NAND gate. $$\begin{equation}\begin{aligned}A\land B&=\neg(A\downarrow B)\cr&=(A\uparrow B)\uparrow (A\uparrow B)\end{aligned}\end{equation}$$</p>
+        <p>Finally, the OR gate. $$\begin{equation}\begin{aligned}A\lor B&=\neg A\uparrow \neg B\cr&=(A\uparrow A)\uparrow (B\uparrow B)\end{aligned}\end{equation}$$</p>
+        
+        <h2 id="Symbols">Symbols</h2>
+        <p>
+            There are various symbols that are used for NAND, the most common being shown below.
+        </p>
+        <img src="images/NAND.png" alt="NAND Symbol" \>
+        
+        <h2 id="Implementation-using-MOS-transistors">Implementation using MOS transistors</h2>
+        <p>
+            The preferred arrangement is shown below. You can see that this arrangement facilitates adding new inputs to create \(n\) input NAND gates. Note that \(V_{DD}\) is the bar above and \(V_{SS}\) is the hollow triangle below.
+        </p>
+        <img src="images/NAND as Transistors.png" alt="NAND implemented using transistors">
+        <p>
+            This image is sourced from Digital Design and Computer Architecture (Second Edition). 
+        </p>
+        <h2 id="Advantages-and-Disadvantages">Advantages and Disadvantages</h2>
+        <h3>Advantages</h3>
+        <ul>
+            <li>Cost effective - NAND gates are mass produced and have high abundance so are economical when used in bulk</li>
+            <li>Due to the universal nature of the gate, it can be used exclusively in circuits, which may reduce complexity</li>
+        </ul>
+        <h3>Disadvantages</h3>
+        <ul>
+            <li>They can increase complexity as more gates are needed than if multiple, specialised gates were used</li>
+            <li>Power consumption - using more gates will consume more power when the gates are active, since more capacitors need to be charged</li>
+        </ul>
+
+        <h2 id="Quiz">Quiz</h2>
+    </body>
+</html>
